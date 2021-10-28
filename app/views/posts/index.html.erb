@@ -1,37 +1,31 @@
-<div class="container-fluid row row-cols-1">
+<h2 class="text-center pt-1 pb-3 sticky-top bg-white">Latest Posts</h2>
 
+<% @posts.reverse().each do |post| %>
+
+  <% if post["content"].length > 180 %>
+    <% post["content"] = post["content"][0..180] + "..." %>  
+  <% end %>
+
+   <% if post["title"].length > 30 %>
+    <% post["title"] = post["title"][0..30] + "..." %>  
+  <% end %>
+
+  <%# Post %>
   <div class="col d-flex justify-content-center">
-    <div class="row card mb-3" style="max-width: 600px;">
+    <div class="row card mb-3" style="width: 600px;">
       <div class="row g-0">
         <div class="col">
-          <img src="https://picsum.photos/300" class="img-fluid rounded-start" alt="...">
+          <img src=<%= post["image_url"] %> class="img-fluid rounded-start" style="width: 100%; height: 15vw; object-fit: cover;" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h5 class="card-title"> <%= post["title"] %> </h5>
+            <p class="card-text"> <%= post["content"] %> </p>
+            <p class="card-text"><small class="text-muted"> <%= post["created_at"] %> </small></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="col d-flex justify-content-center">
-    <div class="row card mb-3" style="max-width: 600px;">
-      <div class="row g-0">
-        <div class="col">
-          <img src="https://picsum.photos/300" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    
+<% end %>
 </div>

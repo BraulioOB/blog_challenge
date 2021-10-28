@@ -1,0 +1,23 @@
+<%= params["title"] %>
+<div class="container">
+    <div class="row row-cols-1 justify-content-center">
+        <div class="col-7">
+            <form action="/posts/create" method="get" id="create_posts">
+                <div class="form-floating mb-3">
+                    <input class="form-control" name="title" placeholder="Dale un titulo al post" type="text">
+                    <label for="title">Titulo</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" name="img_url" placeholder="URL Imagen" type="url">
+                    <label for="img_url">URL Imagen</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Escribe el contenido" name="content" style="height: 45vh" type="text"></textarea>
+                    <label for="content">Contenido</label>
+                </div>
+                <input class="btn btn-success mt-3" type="submit" value="Crear">
+            </form>
+
+        </div>
+    </div>
+</div>
