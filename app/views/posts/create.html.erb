@@ -1,0 +1,11 @@
+<% if @post.errors.any? %>
+    <h1 class="display-2"> Error.</h1>
+    <h2 class="display-6">Esto impide al post ser creado:</h2>
+    <ul> 
+    <% @post.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+    <% end %>
+    </ul>
+<% else %>
+    <h1 class="display-1">Post publicado.</h1>
+<% end %>
